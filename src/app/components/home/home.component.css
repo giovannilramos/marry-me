@@ -1,0 +1,23 @@
+.nav-color {
+  background-color: #661087 !important;
+}
+
+.nav-color div a {
+  color: white;
+}
+
+.player-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.song-player {
+  align-items: center;
+  display: flex;
+}
+
+.player-icon {
+  cursor: pointer;
+  font-size: 40px;
+}

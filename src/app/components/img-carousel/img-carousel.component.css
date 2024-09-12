@@ -1,0 +1,37 @@
+.carousel-size {
+  height: 620px;
+}
+
+.image-container {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  background-color: #000;
+}
+
+.image-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Image_created_with_a_mobile_phone.png/220px-Image_created_with_a_mobile_phone.png');
+  background-size: cover;
+  background-position: center;
+  filter: blur(20px);
+  transform: scale(1.2);
+  z-index: 1;
+}
+
+.image-container img {
+  position: relative;
+  z-index: 2;
+  max-height: 100%;
+  max-width: 100%;
+  object-fit: contain;
+}
