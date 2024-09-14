@@ -1,7 +1,9 @@
 import { Component, ElementRef, ViewChild } from '@angular/core';
 import { ImgCarouselComponent } from '../img-carousel/img-carousel.component';
-import { NgForOf } from '@angular/common';
+import { NgForOf, NgIf } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { CarouselComponent } from '../carousel/carousel.component';
+import { MatButton } from '@angular/material/button';
 
 
 @Component({
@@ -11,40 +13,26 @@ import { FormsModule } from '@angular/forms';
     ImgCarouselComponent,
     NgForOf,
     FormsModule,
+    CarouselComponent,
+    MatButton,
+    NgIf,
   ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css',
 })
 export class HomeComponent {
+  married: boolean = false;
+
+  sheSaidYes() {
+    this.married = true;
+    this.playSong2();
+  }
+
   @ViewChild('audioElement')
   audioElement!: ElementRef<HTMLAudioElement>;
+  @ViewChild('audioElement2')
+  audioElement2!: ElementRef<HTMLAudioElement>;
   pause: boolean = true;
-  fileList: string[] = [
-    'img1.jpg',
-    'img2.jpg',
-    'img3.jpg',
-    'img4.jpg',
-    'img5.jpg',
-    'img6.jpg',
-    'img7.jpg',
-    'img8.jpg',
-    'img9.jpg',
-    'img10.jpg',
-    'img11.jpg',
-    'img12.jpg',
-    'img13.jpg',
-    'img14.jpg',
-    'img15.jpg',
-    'img16.jpg',
-    'img17.jpg',
-    'img18.jpg',
-    'img19.jpg',
-    'img20.jpg',
-  ];
-
-  public isActive(file: string): boolean {
-    return file === 'img1.jpg';
-  }
 
   public playSong(): void {
     this.pause = !this.pause;
@@ -54,6 +42,15 @@ export class HomeComponent {
     }
     this.audioElement.nativeElement.volume = 0.02;
     this.audioElement.nativeElement.play().catch(error => {
+      console.error('Error playing audio:', error);
+    });
+  }
+
+  public playSong2() {
+    this.audioElement.nativeElement.pause();
+    this.audioElement2.nativeElement.volume = 1.0;
+    this.audioElement2.nativeElement.currentTime = 210;
+    this.audioElement2.nativeElement.play().catch(error => {
       console.error('Error playing audio:', error);
     });
   }

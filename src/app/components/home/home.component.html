@@ -9,20 +9,59 @@
     </div>
   </div>
 </nav>
-<div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
-  <div class="carousel-inner carousel-size">
-    <app-img-carousel *ngFor="let file of fileList" [imgSrc]="file" [active]="isActive(file)"></app-img-carousel>
+<app-carousel></app-carousel>
+<div class="text-container">
+  <div class="heart-gif">
+    <img src="heart-gif.gif" height="60" alt="Coração">
   </div>
-  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Previous</span>
-  </button>
-  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Next</span>
+  <p>Pois é meu amor, enfim esse dia chegou, sei que demorou um pouco mais do que você gostaria
+    mas estamos aqui agora, e esse momento é muito importante para nós dois. Primeiro quero agradecer
+    por você ser essa pessoa incrível que você sempre é para mim, que cuida de mim, me acolhe, me da amor
+    e carinho, que é compreensiva, sempre eforçada em tudo que faz, seja no trabalho, no nosso relacionamento
+    ou em qualquer lugar, é um orgulho pra mim ter uma pessoa como você ao meu lado. Você sempre luta por nós,
+    sempre da seu máximo para me ver feliz e para conquistar o que você quer e é muito lindo ver quando você
+    consegue conquistar seus objetivos; eu amo ver você sorrindo, ver você feliz e poder ficar feliz junto com você,
+    eu sou infinitamente feliz ao seu lado e é por isso que estamos aqui nesse momento. Amor, eu quero tornar esses
+    momentos
+    com você <strong>ETERNOS</strong>. Então por isso, eu te pergunto...
+  </p>
+  <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#confirmationModal">
+    Continuar
   </button>
 </div>
+
+<div class="modal fade" id="confirmationModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-body">
+        Dáphne Trevelin, você quer casar comigo?
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#error">Não</button>
+        <button type="button" class="btn btn-primary" (click)="sheSaidYes()" data-bs-dismiss="modal">SIMMMMM!!!!!
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal fade" id="error" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content modal-error">
+      <div class="modal-body text-center">
+        TENTE NOVAMENTE!!!!!!!!!!!!!
+        <button type="button" class="btn btn-danger w-100" data-bs-dismiss="modal" data-bs-toggle="modal"
+                data-bs-target="#confirmationModal">OK
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+<img *ngIf="married" class="she-said-yes" src="fireworks.gif" alt="ELA DISSE SIM!!!"/>
 <audio #audioElement loop>
   <source src="song.mp3" type="audio/mpeg">
+  Your browser does not support the audio element.
+</audio>
+<audio #audioElement2 loop>
+  <source src="song2.mp3" type="audio/mpeg">
   Your browser does not support the audio element.
 </audio>

@@ -17,7 +17,34 @@
   display: flex;
 }
 
+.text-container {
+  width: 100%;
+  text-align: center;
+  padding: 30px;
+}
+
+.heart-gif {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.modal-error {
+  background-color: red !important;
+}
+
+.she-said-yes {
+  position: fixed;
+  width: 100%;
+  min-height: 100%;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+}
+
 .player-icon {
   cursor: pointer;
   font-size: 40px;
+  color: white;
 }
+
